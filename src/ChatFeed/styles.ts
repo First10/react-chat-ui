@@ -3,9 +3,12 @@ export default {
     display: 'flex',
     flexDirection: 'column',
     flex: 1,
-    overflow: 'hidden',
+    // overflow: 'hidden',
   },
-  chatHistory: { overflow: 'auto' },
+  chatHistory: {
+    display: 'flex',
+    flexDirection: 'column'
+  },
   chatbubbleWrapper: {
     marginTop: 10,
     marginBottom: 10,

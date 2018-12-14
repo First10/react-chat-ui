@@ -16,29 +16,30 @@ export default class ChatBubble extends React.Component {
   }
 
   public render() {
-    const { bubblesCentered } = this.props;
+    const { bubblesCentered, message, bubbleClassUser, bubbleClassBot } = this.props;
     let { bubbleStyles } = this.props;
     bubbleStyles = bubbleStyles || defaultBubbleStyles;
     const { userBubble, chatbubble, text } = bubbleStyles;
 
     // message.id 0 is reserved for blue
     const chatBubbleStyles =
-      this.props.message.id === 0
+      message.id === 0
         ? {
-            ...styles.chatbubble,
-            ...bubblesCentered ? {} : styles.chatbubbleOrientationNormal,
-            ...chatbubble,
-            ...userBubble,
-          }
+          ...styles.chatbubble,
+          ...bubblesCentered ? {} : styles.chatbubbleOrientationNormal,
+          ...chatbubble,
+          ...userBubble,
+        }
         : {
-            ...styles.chatbubble,
-            ...styles.recipientChatbubble,
-            ...bubblesCentered
-              ? {}
-              : styles.recipientChatbubbleOrientationNormal,
-            ...chatbubble,
-            ...userBubble,
-          };
+          ...styles.chatbubble,
+          ...styles.recipientChatbubble,
+          ...bubblesCentered
+            ? {}
+            : styles.recipientChatbubbleOrientationNormal,
+          ...chatbubble,
+          ...userBubble,
+        };
+    const chatBubbleClass = message.id === 0 ? bubbleClassBot : bubbleClassUser;
 
     return (
       <div
@@ -46,8 +47,8 @@ export default class ChatBubble extends React.Component {
           ...styles.chatbubbleWrapper,
         }}
       >
-        <div style={chatBubbleStyles}>
-          <p style={{ ...styles.p, ...text }}>{this.props.message.message}</p>
+        <div style={chatBubbleStyles} className={chatBubbleClass}>
+          <p style={{ ...styles.p, ...text }}>{message.message}</p>
         </div>
       </div>
     );

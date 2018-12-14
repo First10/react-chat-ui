@@ -14,6 +14,9 @@ interface ChatFeedInterface {
   props: {
     bubblesCentered?: boolean;
     bubbleStyles?: object;
+    bubbleClassUser?: string;
+    bubbleClassBot?: string;
+    messagesFeedClass?: string;
     hasInputField?: boolean;
     isTyping?: boolean;
     maxHeight?: number;
@@ -55,7 +58,7 @@ export default class ChatFeed extends React.Component {
    * Determines what type of message/messages to render.
    */
   renderMessages(messages: [Message]) {
-    const { isTyping, bubbleStyles, chatBubble, showSenderName } = this.props;
+    const { isTyping, bubbleStyles, chatBubble, showSenderName, bubbleClassUser, bubbleClassBot } = this.props;
 
     const ChatBubble = chatBubble || DefaultChatBubble;
 
@@ -75,6 +78,8 @@ export default class ChatFeed extends React.Component {
             showSenderName={showSenderName}
             chatBubble={ChatBubble}
             bubbleStyles={bubbleStyles}
+            bubbleClassUser={bubbleClassUser}
+            bubbleClassBot={bubbleClassBot}
           />
         );
       }
@@ -103,7 +108,7 @@ export default class ChatFeed extends React.Component {
    */
   render() {
     const inputField = this.props.hasInputField && <ChatInput />;
-    const { maxHeight } = this.props;
+    const { maxHeight, messagesFeedClass } = this.props;
 
     return (
       <div id="chat-panel" style={styles.chatPanel}>
@@ -114,7 +119,7 @@ export default class ChatFeed extends React.Component {
           className="chat-history"
           style={{ ...styles.chatHistory, maxHeight }}
         >
-          <div className="chat-messages">
+          <div className={`chat-messages ${messagesFeedClass}`}>
             {this.renderMessages(this.props.messages)}
           </div>
         </div>

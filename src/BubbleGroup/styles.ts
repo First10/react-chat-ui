@@ -2,7 +2,7 @@ export default {
   chatbubbleWrapper: {
     marginTop: 10,
     marginBottom: 10,
-    overflow: 'auto',
+    // overflow: 'auto',
     position: 'relative',
   },
   bubbleGroupHeader: {
