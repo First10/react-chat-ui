@@ -41,17 +41,21 @@ export default class ChatBubble extends React.Component {
         };
     const chatBubbleClass = message.id === 0 ? bubbleClassBot : bubbleClassUser;
 
-    return (
-      <div
-        style={{
-          ...styles.chatbubbleWrapper,
-        }}
-      >
-        <div style={chatBubbleStyles} className={chatBubbleClass}>
-          <p style={{ ...styles.p, ...text }}>{message.message}</p>
+    if (message.message !== '' && message.message !== null) {
+      return (
+        <div
+          style={{
+            ...styles.chatbubbleWrapper,
+          }}
+        >
+          <div style={chatBubbleStyles} className={chatBubbleClass}>
+            <p style={{ ...styles.p, ...text }}>{message.message}</p>
+          </div>
         </div>
-      </div>
-    );
+      );
+    }
+    return null;
+
   }
 }
 
