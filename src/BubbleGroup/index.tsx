@@ -29,7 +29,6 @@ export default class BubbleGroup extends React.Component {
     const sampleMessage = messages[0];
 
     const messageNodes = messages.map((message, i) => {
-      console.log(message)
       return (
         <ChatBubble
           key={i}
