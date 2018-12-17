@@ -12,7 +12,8 @@ class BubbleGroup extends React.Component {
         const ChatBubble = chatBubble || ChatBubble_1.default;
         const sampleMessage = messages[0];
         const messageNodes = messages.map((message, i) => {
-            return (React.createElement(ChatBubble, { key: i, message: message, type: message.type, bubblesCentered: bubblesCentered, bubbleStyles: bubbleStyles, bubbleClassUser: bubbleClassUser, bubbleClassBot: bubbleClassBot }));
+            console.log(message);
+            return (React.createElement(ChatBubble, { key: i, message: message, bubblesCentered: bubblesCentered, bubbleStyles: bubbleStyles, bubbleClassUser: bubbleClassUser, bubbleClassBot: bubbleClassBot }));
         });
         return (React.createElement("div", { style: styles_1.default.chatbubbleWrapper },
             showSenderName &&
