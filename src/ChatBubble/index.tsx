@@ -39,7 +39,7 @@ export default class ChatBubble extends React.Component {
           ...chatbubble,
           ...userBubble,
         };
-    const chatBubbleClass = message.id === 0 ? bubbleClassBot : bubbleClassUser;
+    const chatBubbleClass = message.id === 1 ? bubbleClassBot : bubbleClassUser;
 
     if (message.message !== '' && message.message !== null && message.message !== undefined) {
       return (

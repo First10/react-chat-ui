@@ -20,7 +20,7 @@ class ChatBubble extends React.Component {
             ? Object.assign({}, styles_1.default.chatbubble, bubblesCentered ? {} : styles_1.default.chatbubbleOrientationNormal, chatbubble, userBubble) : Object.assign({}, styles_1.default.chatbubble, styles_1.default.recipientChatbubble, bubblesCentered
             ? {}
             : styles_1.default.recipientChatbubbleOrientationNormal, chatbubble, userBubble);
-        const chatBubbleClass = message.id === 0 ? bubbleClassBot : bubbleClassUser;
+        const chatBubbleClass = message.id === 1 ? bubbleClassBot : bubbleClassUser;
         if (message.message !== '' && message.message !== null && message.message !== undefined) {
             return (React.createElement("div", { style: Object.assign({}, styles_1.default.chatbubbleWrapper) },
                 React.createElement("div", { style: chatBubbleStyles, className: chatBubbleClass },
