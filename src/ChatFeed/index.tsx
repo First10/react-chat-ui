@@ -111,7 +111,7 @@ export default class ChatFeed extends React.Component {
     const { maxHeight, messagesFeedClass } = this.props;
 
     return (
-      <div id="chat-panel" style={styles.chatPanel}>
+      <div id="chat-panel" style={styles.chatPanel} className="cb-chat-history-container">
         <div
           ref={c => {
             this.chat = c;

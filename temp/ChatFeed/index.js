@@ -44,7 +44,7 @@ class ChatFeed extends React.Component {
     render() {
         const inputField = this.props.hasInputField && React.createElement(ChatInput_1.default, null);
         const { maxHeight, messagesFeedClass } = this.props;
-        return (React.createElement("div", { id: "chat-panel", style: styles_1.default.chatPanel },
+        return (React.createElement("div", { id: "chat-panel", style: styles_1.default.chatPanel, className: "cb-chat-history-container" },
             React.createElement("div", { ref: c => {
                     this.chat = c;
                 }, className: "chat-history cb-chat-history", style: Object.assign({}, styles_1.default.chatHistory, { maxHeight }) },
