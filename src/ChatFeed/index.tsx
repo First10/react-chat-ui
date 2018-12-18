@@ -116,7 +116,7 @@ export default class ChatFeed extends React.Component {
           ref={c => {
             this.chat = c;
           }}
-          className="chat-history"
+          className="chat-history cb-chat-history"
           style={{ ...styles.chatHistory, maxHeight }}
         >
           <div className={`chat-messages ${messagesFeedClass}`}>
