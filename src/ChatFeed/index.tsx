@@ -58,7 +58,7 @@ export default class ChatFeed extends React.Component {
    * Determines what type of message/messages to render.
    */
   renderMessages(messages: [Message]) {
-    const { isTyping, bubbleStyles, chatBubble, showSenderName, bubbleClassUser, bubbleClassBot } = this.props;
+    const { isTyping, bubbleStyles, chatBubble, showSenderName, bubbleClassUser, bubbleClassBot, chatTitle } = this.props;
 
     const ChatBubble = chatBubble || DefaultChatBubble;
 
@@ -80,6 +80,7 @@ export default class ChatFeed extends React.Component {
             bubbleStyles={bubbleStyles}
             bubbleClassUser={bubbleClassUser}
             bubbleClassBot={bubbleClassBot}
+            chatTitle={chatTitle}
           />
         );
       }
@@ -108,7 +109,7 @@ export default class ChatFeed extends React.Component {
    */
   render() {
     const inputField = this.props.hasInputField && <ChatInput />;
-    const { maxHeight, messagesFeedClass } = this.props;
+    const { maxHeight, messagesFeedClass, chatTitle } = this.props;
 
     return (
       <div id="chat-panel" style={styles.chatPanel} className="cb-chat-history-container">
@@ -119,6 +120,7 @@ export default class ChatFeed extends React.Component {
           className="chat-history cb-chat-history"
           style={{ ...styles.chatHistory, maxHeight }}
         >
+          <p className="cb-chat-title">{chatTitle}</p>
           <div className={`chat-messages ${messagesFeedClass}`}>
             {this.renderMessages(this.props.messages)}
           </div>

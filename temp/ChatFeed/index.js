@@ -23,7 +23,7 @@ class ChatFeed extends React.Component {
         this.chat.scrollTop = maxScrollTop > 0 ? maxScrollTop : 0;
     }
     renderMessages(messages) {
-        const { isTyping, bubbleStyles, chatBubble, showSenderName, bubbleClassUser, bubbleClassBot } = this.props;
+        const { isTyping, bubbleStyles, chatBubble, showSenderName, bubbleClassUser, bubbleClassBot, chatTitle } = this.props;
         const ChatBubble = chatBubble || ChatBubble_1.default;
         let group = [];
         const messageNodes = messages.map((message, index) => {
@@ -31,7 +31,7 @@ class ChatFeed extends React.Component {
             if (!messages[index + 1] || messages[index + 1].id !== message.id) {
                 const messageGroup = group;
                 group = [];
-                return (React.createElement(BubbleGroup_1.default, { key: index, messages: messageGroup, id: message.id, showSenderName: showSenderName, chatBubble: ChatBubble, bubbleStyles: bubbleStyles, bubbleClassUser: bubbleClassUser, bubbleClassBot: bubbleClassBot }));
+                return (React.createElement(BubbleGroup_1.default, { key: index, messages: messageGroup, id: message.id, showSenderName: showSenderName, chatBubble: ChatBubble, bubbleStyles: bubbleStyles, bubbleClassUser: bubbleClassUser, bubbleClassBot: bubbleClassBot, chatTitle: chatTitle }));
             }
             return null;
         });
@@ -43,11 +43,12 @@ class ChatFeed extends React.Component {
     }
     render() {
         const inputField = this.props.hasInputField && React.createElement(ChatInput_1.default, null);
-        const { maxHeight, messagesFeedClass } = this.props;
+        const { maxHeight, messagesFeedClass, chatTitle } = this.props;
         return (React.createElement("div", { id: "chat-panel", style: styles_1.default.chatPanel, className: "cb-chat-history-container" },
             React.createElement("div", { ref: c => {
                     this.chat = c;
                 }, className: "chat-history cb-chat-history", style: Object.assign({}, styles_1.default.chatHistory, { maxHeight }) },
+                React.createElement("p", { className: "cb-chat-title" }, chatTitle),
                 React.createElement("div", { className: `chat-messages ${messagesFeedClass}` }, this.renderMessages(this.props.messages))),
             inputField));
     }
