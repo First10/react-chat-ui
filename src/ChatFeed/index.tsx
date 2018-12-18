@@ -120,7 +120,7 @@ export default class ChatFeed extends React.Component {
           className="chat-history cb-chat-history"
           style={{ ...styles.chatHistory, maxHeight }}
         >
-          <p className="cb-chat-title">{chatTitle}</p>
+          {/* <p className="cb-chat-title">{chatTitle}</p> */}
           <div className={`chat-messages ${messagesFeedClass}`}>
             {this.renderMessages(this.props.messages)}
           </div>
