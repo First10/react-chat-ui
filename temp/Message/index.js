@@ -6,6 +6,7 @@ class Message {
         this.message = messageData.message;
         this.senderName = messageData.senderName || undefined;
         this.type = messageData.type || null;
+        this.image = messageData.image || null;
     }
 }
 exports.default = Message;
