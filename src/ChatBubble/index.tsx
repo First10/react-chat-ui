@@ -48,10 +48,11 @@ export default class ChatBubble extends React.Component {
             ...styles.chatbubbleWrapper,
           }}
         >
+          {message.image && (<img className="cb-chat-image" src={message.image} alt="" />)}
           <div style={chatBubbleStyles} className={chatBubbleClass}>
             <p style={{ ...styles.p, ...text }}>{message.message}</p>
           </div>
-          {message.image && (<img className="cb-chat-image" src={message.image} alt="" />)}
+
         </div>
       );
     }

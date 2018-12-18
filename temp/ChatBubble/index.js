@@ -23,9 +23,9 @@ class ChatBubble extends React.Component {
         const chatBubbleClass = message.id === 1 ? bubbleClassBot : bubbleClassUser;
         if (message.message !== '' && message.message !== null && message.message !== undefined) {
             return (React.createElement("div", { style: Object.assign({}, styles_1.default.chatbubbleWrapper) },
+                message.image && (React.createElement("img", { className: "cb-chat-image", src: message.image, alt: "" })),
                 React.createElement("div", { style: chatBubbleStyles, className: chatBubbleClass },
-                    React.createElement("p", { style: Object.assign({}, styles_1.default.p, text) }, message.message)),
-                message.image && (React.createElement("img", { className: "cb-chat-image", src: message.image, alt: "" }))));
+                    React.createElement("p", { style: Object.assign({}, styles_1.default.p, text) }, message.message))));
         }
         return null;
     }
