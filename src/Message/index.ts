@@ -9,6 +9,7 @@ interface MessageData {
   senderName?: string;
   type?: string;
   image?: string;
+  step: number
 }
 
 export default class Message {
@@ -20,11 +21,13 @@ export default class Message {
   senderName?: string;
   type?: string;
   image?: string;
+  step: number
   constructor(messageData: MessageData) {
     this.id = messageData.id; // id of the sender (0 is reserved for "blue bubble")
     this.message = messageData.message;
     this.senderName = messageData.senderName || undefined;
     this.type = messageData.type || null;
     this.image = messageData.image || null;
+    this.image = messageData.step;
   }
 }
