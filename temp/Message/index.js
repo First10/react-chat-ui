@@ -8,6 +8,7 @@ class Message {
         this.type = messageData.type || null;
         this.image = messageData.image || null;
         this.stepID = messageData.stepID || null;
+        this.step = messageData.step || null;
     }
 }
 exports.default = Message;
