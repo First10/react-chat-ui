@@ -7,7 +7,7 @@ class Message {
         this.senderName = messageData.senderName || undefined;
         this.type = messageData.type || null;
         this.image = messageData.image || null;
-        this.step = messageData.step || null;
+        this.stepID = messageData.stepID || null;
     }
 }
 exports.default = Message;
