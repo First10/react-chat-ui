@@ -10,6 +10,12 @@ class ChatFeed extends React.Component {
     constructor(props) {
         super(props);
     }
+    componentDidMount() {
+        this.scrollToBottom();
+    }
+    componentDidUpdate() {
+        this.scrollToBottom();
+    }
     scrollToBottom() {
         const scrollHeight = this.chat.scrollHeight;
         const height = this.chat.clientHeight;
